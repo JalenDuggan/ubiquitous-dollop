@@ -1,7 +1,13 @@
 
 import { PrismaClient } from "@prisma/client";
 
-import { accountSeed } from "./data/00_account"
+import { accountSeed } from "./data/00_account";
+import { bookingSeed } from "./data/01_booking";
+import { bookingRoomSeed } from "./data/02_bookingRoom";
+import { citySeed } from "./data/03_city";
+import { hotelSeed } from "./data/04_hotel";
+import { hotelChainSeed } from "./data/05_hotelChain";
+import { roomSeed } from "./data/06_room";
 
 const prisma = new PrismaClient();
  
@@ -33,6 +39,13 @@ const load = async () => {
     
     //Seeds the Database
     await accountSeed();
+    await citySeed();
+    await hotelChainSeed();
+    await hotelSeed();
+    await roomSeed();
+    await bookingSeed();
+    await bookingRoomSeed();
+
     
 
   } catch (e) {
