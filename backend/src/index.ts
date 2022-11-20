@@ -24,6 +24,20 @@ app.use(cookieParser());
 // //get users
 // app.use('/users', usersRouter);
 
+app.get("/accounts", async (req, res, next) => {
+    try {
+        const accounts = await prisma.account.findMany({
+            where: {
+                account_status: 1
+            }
+        });
+        res.status(200).json({ accounts });
+        
+    } catch (error: any) {
+        next(error.message)
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`)
 })

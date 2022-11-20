@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/src/index.js",
-    "dev": "tsc-watch --onSuccess \"node ./dist/src/index.js\"",
+    "dev": "tsc-watch --onSuccess \"nodemon ./dist/src/index.js\"",
     "seed": "ts-node prisma/seed.ts",
     "makeDB": "npx prisma db push",
     "build": "tsc"
