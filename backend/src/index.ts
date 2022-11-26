@@ -4,8 +4,8 @@ import logger from 'morgan';
 
 import { PrismaClient } from '@prisma/client';
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
 
 var app = express();
 
