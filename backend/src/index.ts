@@ -117,10 +117,25 @@ app.get("/api/v1/city", async (req, res, next) => {
     }
 })
 
-app.get("/api/v1/hotels", async (req, res, next) => {
+app.get("/api/v1/hotel", async (req, res, next) => {
     try {
         const hotels = await prisma.hotel.findMany();
         res.status(200).json({ hotels });
+
+    } catch (error: any) {
+        next(error.message)
+    }
+})
+
+
+app.get("/api/v1/room/:id", async (req, res, next) => {
+    try {
+        const room = await prisma.room.findUnique({
+            where: {
+                room_id: Number(req.params.id) 
+            }
+        });
+        res.status(200).json({ room });
 
     } catch (error: any) {
         next(error.message)
